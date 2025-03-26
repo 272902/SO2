@@ -9,12 +9,22 @@
 using namespace std;
 
 void philosopher(int id, int numIterations) {
+    for (int i = 0; i < numIterations; ++i) {
+        think(id);
+        eat(id);
+    }
 }
 
-void eat() {
+void eat(int id) {
+    cout << "Philosopher " << id << " is eating." << endl;
+    //Eating for a duration of random time (between 100 and 300 ms)
+    this_thread::sleep_for(chrono::milliseconds(100 + rand() % 200));
 }
 
-void think() {
+void think(int id) {
+    cout << "Philosopher " << id << " is thinking." << endl;
+    //Thinking for a duration of random time (between 100 and 300 ms)
+    this_thread::sleep_for(chrono::milliseconds(100 + rand() % 200));
 }
 
 int main() {
