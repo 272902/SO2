@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void philosopher(int id, int numIterations) {
+void philosopher(int id, int numIterations, ) {
     for (int i = 0; i < numIterations; ++i) {
         think(id);
         eat(id);
@@ -50,6 +50,10 @@ int main() {
                                   ref(forks[i]),
                                   ref(forks[(i + 1) % numPhilosophers]),
                                   ref(table));
+    }
+
+    for (auto &t : philosophers) {
+        t.join();
     }
 
     return 0;
