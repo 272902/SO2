@@ -8,8 +8,8 @@
 
 using namespace std;
 
-void philosopher(int id, int numIterations, mutex& leftFork, mutex& rightFork, counting_semaphore<>& table) {
-    for (int i = 0; i < numIterations; ++i) {
+void philosopher(int id, mutex& leftFork, mutex& rightFork, counting_semaphore<>& table) {
+    while(true) {
         think(id);
         eat(id);
     }
@@ -36,8 +36,6 @@ int main() {
 
     // Mutex forks
     vector<mutex> forks(numPhilosophers);
-
-    const int numIterations = 5; // iteration number (1 iteration - thinking, eating)
 
     // Semaphore with plihosophers number
     counting_semaphore<> table(numPhilosophers - 1);
