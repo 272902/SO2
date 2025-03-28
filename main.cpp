@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void philosopher(int id, int numIterations, ) {
+void philosopher(int id, int numIterations, mutex& leftFork, mutex& rightFork, counting_semaphore<>& table) {
     for (int i = 0; i < numIterations; ++i) {
         think(id);
         eat(id);
