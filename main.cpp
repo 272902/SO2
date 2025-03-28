@@ -27,11 +27,16 @@ void think(int id) {
     this_thread::sleep_for(chrono::milliseconds(100 + rand() % 200));
 }
 
-int main() {
-    int numPhilosophers = 5;
-    if (numPhilosophers < 2) {
-        cerr << "There has to be at least 2 philosophers." << endl;
-        return 1;
+int main(int argc, char* argv[]) {
+
+    int numPhilosophers = 5; // default philosophers number
+
+    if(argc >= 2) {
+        numPhilosophers = atoi(argv[1]);
+        if(numPhilosophers < 2) {
+            cerr << "There has to be at least 2 philosophers." << endl;
+            return 1;
+        }
     }
 
     // Mutex forks
