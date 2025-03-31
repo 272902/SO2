@@ -3,7 +3,7 @@
 ## 1. Instrukcja uruchomienia projektu
   Kompilator C++20 (np. g++)  
    ### Kompilacja:  
-    g++ -std=c++20 -o philosophers philosophers.cpp -pthread  
+    g++ -std=c++20 -o philosophers main.cpp -pthread  
    ### Uruchomienie projektu:  
     ./philosophers <liczba_filozofów>  
   Domyślnie program uruchomi się z 5 filozofami. Można podać inną liczbę jako argument.
